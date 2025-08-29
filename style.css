@@ -1,0 +1,21 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.card-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.card-text {
+  color: #555;
+}
+
+footer {
+  margin-top: 40px;
+}
+
+.card-img-top {
+    height: 400px;
+    width: 250px;
+}

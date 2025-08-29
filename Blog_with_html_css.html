@@ -1,0 +1,282 @@
+<!DOCTYPE>
+<HTML>
+    <head>
+        <title>Blog - Web sample</title>
+    </head>
+
+    <body>
+
+     <div class="container">
+
+        <aside class="side-bar">
+
+        <img src="./images/passport_size_photo.jpeg" alt="profile" class="profile_pic">
+        <h2>Karuppan Chetty Karthik</h2>
+        <p>Experiance in IT-Industry with 4+years on oracle SQL, PL/SQL</p>
+
+        <div class="icons">
+        <a href="#Objective">Objective</a>
+        <a href="#education_dtls">Education Details</a>
+        <a href="#Professional_Summary">Professional Summary</a>
+        <a href="#skills">Skills</a>
+        <a href="#professional_exp">Professional experience</a>
+        <a href="#Certification">Certification</a>
+        </div>
+        <button class="hire-me">Hire me</button>
+        </aside>
+
+        <main>
+            <header>
+            <nav class="menu">
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+                <a href="#">Info</a>
+            </nav>
+            </header>
+            
+
+            <section class="info" id="Objective">
+            <h3>Objective :</h3>
+                &emsp;
+                &emsp;
+                Looking forward for an opportunity where I can leverage my skills in programming, problem solving, and
+                application support into contribute to organizationl success and grow professionally.
+            </section>
+
+            <section class="education_dtls" id="education_dtls">
+            <h3>Eductional Details :</h3>
+            
+            <table border = "1">
+                <thead>
+                    <tr>
+                        <th>Qualification</th>
+                        <th>Institution</th>
+                        <th>Board/University</th>
+                        <th>Year of passing</th>
+                        <th>Percentage/CGPA</th>                        
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td><abbr title ="Bachelor of Engineering">B.E</abbr> in Civil</td>
+                        <td>National Engineering College</td>
+                        <td>Anna University</td>
+                        <td style="text-align:center">2019</td>
+                        <td style="text-align:center">7.5</td>
+                    </tr>
+
+                    <tr>
+                        <td>Higher Secondary <abbr title="Higher Secondary Certificate">(HSC)</abbr></td>
+                        <td>velammal Memorial Matric HR Sec School</td>
+                        <td>State Board</td>
+                        <td style="text-align:center">2015</td>
+                        <td style="text-align:center">77%</td>
+                    </tr>
+
+                    <tr>
+                        <td>Secondary School <abbr title = "Secondary School Leaving Certificate">(SSLC)</abbr></td>
+                        <td>velammal Memorial Matric HR Sec School</td>
+                        <td>State Board</td>
+                        <td style="text-align:center">2013</td>
+                        <td style="text-align:center">93%</td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+            </section>
+
+            <section class="Professional_Summary" id="Professional_Summary"> 
+                <h3>Professional Summary :</h3>
+                <ul>
+                    <li>
+                        PL/SQL Developer with 4 years of progressive experience in RDBMS, Oracle SQL, PL/SQL, Performance tuning and application programming.  
+                    </li>
+                    <li>
+                        Proven experience in both service-based and product-based projects, with a focus on the insurance & banking domain.
+                    </li>
+                    <li>
+                        Created and maintained Tables, Packages, Procedures, Functions and update, insert and delete statements and experience in Debugging the code.
+                    </li>
+                    <li>
+                        Skilled in query optimization, data migration and production support.
+                    </li>
+                </ul>
+            </section>
+
+            <div class="skills" id="skills">
+                <h3>Skills :</h3>
+                <ul style = "list-style-type:square">
+                    <li>PL/SQL</li>
+                    <li>Oracle SQL</li>
+                    <li>Java</li>
+                </ul>
+            </div>
+
+            <section class="professional_exp" id="professional_exp"> 
+                <h3>Professional experience :</h3>
+                <table border = 1.1>
+                    <TR>
+                    <th>Organization &nbsp;</th>
+                    <td>Azentio Software Private Limited</td>
+                    </TR>
+
+                    <tr>
+                    <th>Project title &nbsp;</th>
+                    <td>
+                        <abbr title = "Clements World Wide">CWW</abbr>,&nbsp;
+                        <abbr title = "La Mutuella des Municipalities du Quebec">MMQ</abbr>,&nbsp;
+                        <abbr title = "Oregon Fair Plan Association">OFPA</abbr>
+                    </td>
+                    </tr>
+
+                    <tr>
+                    <th>Clients &nbsp;</th>
+                    <td>US, &nbsp; Canada</td>
+                    </tr>
+
+                    <tr>
+                    <th>Domain &nbsp;</th>
+                    <td><abbr title="Banking, Financial Services and Insurance">BFSI</abbr></td>
+                    </tr>
+
+                    <tr>
+                    <th>Period &nbsp;</th>
+                    <td>May 2021 to Till Date</td>
+                    </tr>
+                </table>
+            </section>
+
+            <section class="Ceritification" id="Certification">
+                <h3>Ceritification :</h3>
+                <ul>
+                    <li>OCI Foundations Associate (Inprogress)</li>
+                    <li>Oracle Data Platform Foundations Associate (Preparing)</li>
+                </ul>
+            </section>
+
+        </main>
+
+     </div>
+
+     <footer class="site-footer">
+        <p>&copy; 2025 Karuppan Chetty Karthik. All rights reserved.</p>
+     </footer>
+
+             
+    </body>
+
+    <style>
+        *{
+            margin: 0;
+            /* padding: 2px; */
+            scroll-behavior: smooth;
+        }
+
+
+        .container{
+            display:flex;
+        }
+
+        .side-bar{
+            width:280px;
+            background-color:#e3f2fd;
+            padding: 20px;
+            height: 100vh;
+            position: fixed;
+            text-align: center;
+        }
+
+        .profile_pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 40%;
+            object-fit: fill;
+            margin-bottom: 10px;
+        }
+
+
+        .icons{
+            display:flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 20px;
+            margin: 0 8px;
+            font-size: 18px;
+            text-decoration: none;
+            color: black;
+        }
+
+        .icons>a{
+            text-decoration: none;
+        }
+
+        .hire-me{
+            margin-top: 15px;
+            padding: 10px 20px;
+            color:white;
+            border:none;
+            cursor:pointer;
+            border-radius: 5px;
+            background-color: black;
+        }
+
+        .content {
+            margin-left: 300px;
+            padding: 20px;
+        }
+
+        .menu {
+            display: flex;
+            gap: 30px;
+            background-color: #c8e6c9;
+            padding: 15px;
+            justify-content: center;
+        }
+
+        .menu>a {
+            text-decoration: none;
+            color: #334cac;
+            font-weight: bold;
+        }
+
+        a:link, a:visited {
+        color: #0077cc; 
+        }
+
+        a:hover {
+            color: #d32f2f;
+        }
+
+        section,.skills {
+            background-color: #fff;
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            margin-left: 320px;
+            margin-right: 10px;
+        }
+
+        h3{
+            margin-bottom: 5px;
+            
+        }
+
+        .site-footer {
+            width: 100%;
+            position: relative;
+            bottom: 0;
+            background-color: #f0f0f0;
+            color: #333;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 14px;
+            border-top: 1px solid #ccc;
+            margin-top: 40px;
+        }
+
+
+    </style>
+</HTML>
