@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JS String Functions</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+    /*Upper case function*/
+    function convertUpperCase(txt) {
+
+            return{
+            originalText : txt,
+            uppercase    : txt.toUpperCase()
+        }
+    }
+
+    let text = convertUpperCase("Hello World");
+    console.log("convertUpperCase===>",text);
+
+    /*Lower case function*/
+
+    function convertLowerCase(ltxt) {
+
+        return{
+            originalText : ltxt,
+            lowercase : ltxt.toLowerCase()
+        }
+    }
+
+    let lower_text = convertLowerCase("Hello RaviCHANDRAN");
+    console.log('convertLowerCase===>',lower_text);
+
+    /*String Length function*/
+    function checkStringLength() {
+
+        let text = "JavaScript";
+        console.log("checkStringLength===>",text.length);
+
+    }
+
+    checkStringLength();
+
+    /*string & Position function*/
+
+    function stringFunction() {
+        
+        let originaltext = "JavaScript is JS";
+
+        let result = {
+            originalText : originaltext,
+            "Position & Substr" : `${originaltext.charAt(0)}${originaltext.charAt(4)} = ${originaltext.substr(0,4)} ${originaltext.substr(4,6)}`
+        }
+        console.log("stringFunction===>",result);
+
+    }
+
+    stringFunction();
+
+    /*trim And Replace Function*/
+
+    function trimAndReplaceFunction() {
+
+        var originaltext = "                JavaScript program           ";
+
+        let result = {
+            originaltext : originaltext,
+            "trimmedtext & Replacedtext": `${originaltext.trim()} & ${originaltext.trim().replace("JavaScript","React")}`
+        }
+        console.log("trimAndReplaceFunction===>",result);
+    }
+
+    trimAndReplaceFunction();
+
+    /*Spilt function*/
+
+    function splitFunction() {
+
+        var originaltext = "JavaScript is scripting language";
+
+        let result = {
+            originaltext : originaltext,
+            spiltedtext : originaltext.split(" ")
+        }
+        console.log("splitFunction===>",result);
+    }
+
+    splitFunction();
+
+
+    /* Index functions */
+
+    function indexedFunction() {
+
+        var originaltext = "JavaScript is scripting language";
+
+        let result = {
+            originaltext : originaltext,
+            slicedtext : originaltext.slice(11,13),
+            indexOftext : originaltext.indexOf(`${originaltext.slice(11,13)}`,),
+            lastIndexOf : originaltext.lastIndexOf("s"),
+            includes : originaltext.includes(originaltext.slice(15,20))
+        }
+        console.log("indexedFunction===>",result);
+    }
+
+    indexedFunction();
+</script>
+</html>
