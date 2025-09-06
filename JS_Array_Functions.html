@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JS Array Functions</title>
+    </head>
+    <body>
+
+    </body>
+    <script>
+
+        const course = ["html","css","js","react"];
+        let result;
+
+        function getArraylength(array) {
+
+            let res_format = {
+                original_array : course,
+                Modified_array_length : array.length,
+                Modified_array_at : array.at(2)
+
+            };
+
+            return res_format;
+        }
+
+        result = getArraylength(course);
+        console.log("Array length==>",result);
+
+
+        function addElementLast(array,element) {
+
+            let res_format = {
+                original_array : course,
+                Modified_array : array.push(element)
+
+            };
+            
+            return res_format;
+        }
+
+        result = addElementLast(course,"unix");
+        console.log("push function to add element at last==>",result);
+
+
+        function removeLastElement(array) {
+            // array.push("linux");
+            let res_format = {
+                original_array : course,
+                Modified_array : array.pop()
+
+            };
+            
+            return res_format;
+        }
+
+        result = removeLastElement(course);
+        console.log("pop function to remove element at last==>",result);
+
+        function addNewElementFirst(array,element) {
+            let res_format = {
+                original_array : course,
+                Modified_array : array.unshift(element)
+
+            };
+            
+            return res_format;
+        }
+
+        result = addNewElementFirst(course,"linux");
+        console.log("unshift function to add element at first==>",result);
+
+        function removeFirstElement(array) {
+            let res_format = {
+                original_array : course,
+                Modified_array_1 : array.shift(),
+                Modified_array_2 : array.shift()
+
+            };
+            
+            return res_format;
+        }
+
+        result = removeFirstElement(course);
+        console.log("shift function to add element at first==>",result);
+    </script>
+</html>

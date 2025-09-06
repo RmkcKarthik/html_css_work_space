@@ -16,8 +16,28 @@
 
                 <h3 class="text-center mb-3"> Money Converter</h3>
 
-                <label for="money" class="form-label mb-2">Rupees to Dollar</label>
-                <input type="number" id="rupees" class="form-control mb-3" placeholder="Enter the amount">
+                <label for="money" class="form-label mb-2">Enter the Amount</label>
+                <input type="number" id="money" class="form-control mb-3" placeholder="Enter the amount">
+
+                <div class="d-flex justify-content-center gap-5">
+                    <label for="currency_from" class="form-control bg-dark text-justify text-white">From</label>
+                    <select class="form-select" id="currency_from">
+                    <option selected disabled>Choose Currency</option>
+                    <option value="India" id="Rupees_from">Rupees</option>
+                    <option value="USA" id="Dollars_from">Dollar</option>
+                    <option value="kuwait" id="Dinar_from">Dinar</option>
+                    <option value="Malaysia" id="Ringgit_from">Ringgit</option>
+                    </select>
+
+                    <label for="currency_to" class="form-control bg-dark text-justify text-white">To</label>
+                    <select class="form-select" id="currency_to">
+                    <option selected disabled>Choose Currency</option>
+                    <option value="India" id="Rupees_to">Rupees</option>
+                    <option value="USA" id="Dollars_to">Dollar</option>
+                    <option value="kuwait" id="Dinar_to">Dinar</option>
+                    <option value="Malaysia" id="Ringgit_to">Ringgit</option>
+                    </select>
+                </div>
 
                 <div class="d-flex justify-content-center gap-5">
                     <button class="btn btn-primary mb-2 mt-2 w-50" onclick="resetValue()">Reset</button>
@@ -35,24 +55,46 @@
 <script>
 
     function sumbitAmount() {
-        let inr = document.getElementById("rupees").value;
-        const rate = 88.14;
+        let amount = document.getElementById("money").value;
+        const from_curr = document.getElementById("currency_from").value;
+        const to_curr = document.getElementById("currency_to").value;
 
-        if (inr===null || inr==='') {
-            document.getElementById("result").innerHTML = `Please enter a valid amount`;
-        }
-        else {
-            let usd = inr/rate;
+        const rates = {
+            India : 88.14,
+            USA : 1,
+            Kuwait : 286.65,
+            Malaysia : 20.88
+        };
 
-            document.getElementById("result").innerHTML = `<b> ${inr}₹ = ${usd.toFixed(3)}$ <b>`;
+         if  ((from_curr === "Choose Currency") || (to_curr === "Choose Currency")) {
+           document.getElementById("result").innerHTML = `<span style="color:red"> Please choose a currency </span>`; 
+           return;
         }
+
+        if (from_curr === to_curr) {
+           document.getElementById("result").innerHTML = `<span style="color:red"> From and To currency are same, Please change it. </span>`; 
+           return;
+        }
+
+        if (amount===null || amount==='') {
+            document.getElementById("result").innerHTML = `<span style="color:red"> Please enter a valid amount </span>`;
+            return;
+        }
+
+       const amountIn = amount * rates[from_curr];
+
+       const convertedAmount = amount / rates[to_curr];
+
+       document.getElementById("result").innerHTML =`<b>${amount} ${from_curr} = ${convertedAmount.toFixed(2)} ${to_curr}</b>`;
     }
 
 
     function resetValue() {
 
-        document.getElementById("rupees").value=``;
-        document.getElementById("result").innerHTML=``;
+        document.getElementById("money").value=``;
+        document.getElementById("currency_from").selectedIndex=0;
+        ocument.getElementById("currency_to").selectedIndex=0;
+        document.getElementById("result").innerHTML =``;
 
     }
 
