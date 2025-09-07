@@ -23,19 +23,19 @@
                     <label for="currency_from" class="form-control bg-dark text-justify text-white">From</label>
                     <select class="form-select" id="currency_from">
                     <option selected disabled>Choose Currency</option>
-                    <option value="India" id="Rupees_from">Rupees</option>
-                    <option value="USA" id="Dollars_from">Dollar</option>
-                    <option value="kuwait" id="Dinar_from">Dinar</option>
-                    <option value="Malaysia" id="Ringgit_from">Ringgit</option>
+                    <option value="INR" id="Rupees_from">Rupees (₹)</option>
+                    <option value="USD" id="Dollars_from">Dollar ($)</option>
+                    <option value="KWD" id="Dinar_from">Dinar (KD)</option>
+                    <option value="MYR" id="Ringgit_from">Ringgit (RM)</option>
                     </select>
 
                     <label for="currency_to" class="form-control bg-dark text-justify text-white">To</label>
                     <select class="form-select" id="currency_to">
                     <option selected disabled>Choose Currency</option>
-                    <option value="India" id="Rupees_to">Rupees</option>
-                    <option value="USA" id="Dollars_to">Dollar</option>
-                    <option value="kuwait" id="Dinar_to">Dinar</option>
-                    <option value="Malaysia" id="Ringgit_to">Ringgit</option>
+                    <option value="INR" id="Rupees_to">Rupees (₹)</option>
+                    <option value="USD" id="Dollars_to">Dollar ($)</option>
+                    <option value="KWD" id="Dinar_to">Dinar (KD)</option>
+                    <option value="MYR" id="Ringgit_to">Ringgit (RM)</option>
                     </select>
                 </div>
 
@@ -60,13 +60,13 @@
         const to_curr = document.getElementById("currency_to").value;
 
         const rates = {
-            India : 88.14,
-            USA : 1,
-            Kuwait : 286.65,
-            Malaysia : 20.88
+            INR: { rate: 88.14, symbol:"₹"},
+            USD: { rate: 1, symbol:"$"},
+            KWD: { rate: 286.65, symbol:"KD"},
+            MYR: { rate: 20.88, symbol:"RM"},
         };
 
-         if  ((from_curr == "Choose Currency") || (to_curr == "Choose Currency")) {
+         if  (!from_curr || !to_curr ) {
            document.getElementById("result").innerHTML = `<span style="color:red"> Please choose a currency </span>`; 
            return;
         }
@@ -81,11 +81,14 @@
             return;
         }
 
-       const amountIn = amount * rates[from_curr];
+       const amountIn = amount / rates[from_curr].rate;
 
-       const convertedAmount = amount / rates[to_curr];
+       const convertedAmount = amountIn * rates[to_curr].rate;
 
-       document.getElementById("result").innerHTML =`<b>${amount} ${from_curr} = ${convertedAmount.toFixed(2)} ${to_curr}</b>`;
+       const fromSymbol = rates[from_curr].symbol;
+       const toSymbol = rates[to_curr].symbol;
+
+       document.getElementById("result").innerHTML =`<b>${fromSymbol}${amount} = ${toSymbol}${convertedAmount.toFixed(2)}</b>`;
     }
 
 
