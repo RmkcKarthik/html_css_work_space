@@ -121,6 +121,17 @@
         const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
 
+        document.getElementById('username_err').innerHTML = ``;
+        document.getElementById('firstname_err').innerHTML = ``;
+        document.getElementById('lastname_err').innerHTML = ``;
+        document.getElementById('mob_err').innerHTML = ``;
+        document.getElementById('email_err').innerHTML = ``;
+        document.getElementById('password_err').innerHTML = ``;
+        document.getElementById('country_err').innerHTML = ``;
+        document.getElementById('sus_msg').innerHTML = ``;
+
+
+
 
         if (name==null || name=='') {
             document.getElementById('username_err').innerHTML = `Please enter a valid username `;
@@ -207,7 +218,7 @@
             country : country
         }
 
-        document.getElementById('sus_msg').innerHTML = ` ${JSON.stringify(result)} `;
+        document.getElementById('sus_msg').innerHTML = ` <strong>Registration successful!</strong><br>${JSON.stringify(result)} `;
         }
 
         else {
