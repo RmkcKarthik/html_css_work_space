@@ -114,62 +114,88 @@
         var pass = document.getElementById("password").value;
         var country = document.getElementById("country").value;
 
+        let isValid = true;
+
+        const NamePattern = /^[A-Za-z_]+$/; 
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+
 
         if (name==null || name=='') {
             document.getElementById('username_err').innerHTML = `Please enter a valid username `;
+            isValid = false;
         }
-        else {
-            document.getElementById('username_err').innerHTML = ``;
+        else if (!emailPattern.test(name)) {
+            document.getElementById('username_err').innerHTML = `Invalid username format. Username must be a valid email address`;
+            isValid = false;
         }
 
 
-        if ((f_name==null || f_name=='') || (l_name==null || l_name=='')) {
+
+        if (f_name==null || f_name=='') {
             document.getElementById('firstname_err').innerHTML = `Please enter a valid firstname `;
+            isValid = false;
         }
-        else {
-            document.getElementById('firstname_err').innerHTML = ``;
+        else if (!NamePattern.test(f_name)) {
+        document.getElementById('firstname_err').innerHTML = `Please enter a valid firstname. Name can contain only upper and lower case letters`;
+        isValid = false;
         }
+
+
 
 
         if (l_name==null || l_name=='') {
             document.getElementById('lastname_err').innerHTML = `Please enter a valid lastname`;
+            isValid = false;
         }
-        else {
-            document.getElementById('lastname_err').innerHTML = ``;
+        else if (!NamePattern.test(l_name)) {
+        document.getElementById('lastname_err').innerHTML = `Please enter a valid lastname. Name can contain only upper and lower case letters`;
+        isValid = false;
         }
+
 
 
         if (mob==null || mob=='') {
             document.getElementById('mob_err').innerHTML = `Please enter a valid mobile no `;
+            isValid = false;
         }
-        else {
-            document.getElementById('mob_err').innerHTML = ``;
-        }
+
 
 
         if (mail==null || mail=='')  {
             document.getElementById('email_err').innerHTML = `Please enter a valid Email id `;
+            isValid = false;
         }
-        else {
-           
-            document.getElementById('email_err').innerHTML = ``;
-        }
+
 
 
         if (pass==null || pass=='')  {
             document.getElementById('password_err').innerHTML = `Please enter a valid password `;
+            isValid = false;
         }
-        else {
-            document.getElementById('password_err').innerHTML = ``;
+        else if (!passwordPattern.test(pass)) {
+            document.getElementById('password_err').innerHTML = `
+            <small>Password must be at least 8 characters and include uppercase, lowercase, number, and special character.</small>`;
+
+            isValid = false;
         }
+
 
         if (country == '' || country == null || country === 'Choose your country') {
             document.getElementById('country_err').innerHTML = `Please select a valid country`;
-        } else {
-            document.getElementById('country_err').innerHTML = ``;
+            isValid = false;
         }
 
-
+        if (isValid) {
+            document.getElementById('username_err').innerHTML = ``;
+            document.getElementById('firstname_err').innerHTML = ``;
+            document.getElementById('lastname_err').innerHTML = ``;
+            document.getElementById('mob_err').innerHTML = ``;
+            document.getElementById('email_err').innerHTML = ``;
+            document.getElementById('password_err').innerHTML = ``;
+            document.getElementById('country_err').innerHTML = ``;
+            document.getElementById('sus_msg').innerHTML = ``;
 
         let result = {
             username : name,
@@ -182,6 +208,15 @@
         }
 
         document.getElementById('sus_msg').innerHTML = ` ${JSON.stringify(result)} `;
+        }
+
+        else {
+            document.getElementById('sus_msg').innerHTML = ``;
+        }
+
+
+
+
     }
 
     function clearValidation() {

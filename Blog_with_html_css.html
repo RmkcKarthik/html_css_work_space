@@ -4,8 +4,8 @@
         <title>Blog - Web sample</title>
     </head>
 
-    <body>
-
+    <body onload="load()">
+    <div class="page-wrapper">
      <div class="container">
 
         <aside class="side-bar">
@@ -15,12 +15,14 @@
         <p>Experiance in IT-Industry with 4+years on oracle SQL, PL/SQL</p>
 
         <div class="icons">
-        <a href="#Objective">Objective</a>
-        <a href="#education_dtls">Education Details</a>
-        <a href="#Professional_Summary">Professional Summary</a>
-        <a href="#skills">Skills</a>
-        <a href="#professional_exp">Professional experience</a>
-        <a href="#Certification">Certification</a>
+        <ul>
+        <li><a href="javascript:void(0)" onclick="showSection('Objective')">Objective</a></li>
+        <li><a href="javascript:void(0)" onclick="showSection('education_dtls')">Education Details</a></li>
+        <li><a href="javascript:void(0)" onclick="showSection('Professional_Summary')">Professional Summary</a></li>
+        <li><a href="javascript:void(0)" onclick="showSection('skills')">Skills</a></li>
+        <li><a href="javascript:void(0)" onclick="showSection('professional_exp')">Professional experience</a></li>
+        <li><a href="javascript:void(0)" onclick="showSection('Certification')">Certification</a></li>
+        </ul>
         </div>
         <button class="hire-me">Hire me</button>
         </aside>
@@ -161,22 +163,28 @@
 
      </div>
 
-     <footer class="site-footer">
+        <footer class="site-footer">
         <p>&copy; 2025 Karuppan Chetty Karthik. All rights reserved.</p>
-     </footer>
+        </footer>
 
-             
+
+    </div> 
+    
     </body>
 
     <style>
-        *{
-            margin: 0;
-            /* padding: 2px; */
-            scroll-behavior: smooth;
+
+
+        html, body {
+            height : 100%;
+            margin : 0;
+            display: flex;
+            flex-direction: column;
         }
 
 
         .container{
+            flex : 1;
             display:flex;
         }
 
@@ -187,14 +195,22 @@
             height: 100vh;
             position: fixed;
             text-align: center;
+            overflow-y: auto; 
+            box-sizing: border-box; 
+            padding-top: 50px;
+
         }
 
         .profile_pic {
             width: 120px;
             height: 120px;
-            border-radius: 40%;
-            object-fit: fill;
-            margin-bottom: 10px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center;
+            max-width: 100%;
+            display :block;
+            margin: 0 auto 10px;
+
         }
 
 
@@ -209,9 +225,21 @@
             color: black;
         }
 
-        .icons>a{
+        .icons a{
             text-decoration: none;
+            display: block;
         }
+
+        .icons ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .icons li {
+            margin-bottom: 8px;
+        }
+
 
         .hire-me{
             margin-top: 15px;
@@ -236,6 +264,15 @@
             justify-content: center;
         }
 
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+
+        }
+
         .menu>a {
             text-decoration: none;
             color: #334cac;
@@ -255,8 +292,8 @@
             margin-bottom: 20px;
             padding: 15px;
             border-radius: 5px;
-            margin-left: 320px;
-            margin-right: 10px;
+            /* margin-left: 320px;*/
+            margin-right: 20px; 
         }
 
         h3{
@@ -266,8 +303,6 @@
 
         .site-footer {
             width: 100%;
-            position: relative;
-            bottom: 0;
             background-color: #f0f0f0;
             color: #333;
             text-align: center;
@@ -275,8 +310,62 @@
             font-size: 14px;
             border-top: 1px solid #ccc;
             margin-top: 40px;
+            position: relative;
+            z-index: 1;
+
+        }
+
+        main > section, main > div.skills {
+            display: none;
+        }
+
+        .page-wrapper {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        main {
+            margin-top: 80px; 
+            margin-left: 300px;
+        }
+
+        section {
+            scroll-margin-top: 80px; 
         }
 
 
+
+
+
     </style>
+
+    <script>
+        function showSection(sectionId) {
+
+             const sections = document.querySelectorAll('main>section, main>div.skills');
+
+             sections.forEach(
+                sec => {
+                    sec.style.display = 'none';
+                }
+             );
+
+             const targetBlock = document.getElementById(sectionId);
+
+             if(targetBlock) {
+                targetBlock.style.display = 'block';
+             }
+
+
+        }
+
+
+        function load() {
+            showSection('Objective');
+        }
+
+
+
+    </script>
 </HTML>
