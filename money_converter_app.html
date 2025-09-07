@@ -66,7 +66,7 @@
             Malaysia : 20.88
         };
 
-         if  ((from_curr === "Choose Currency") || (to_curr === "Choose Currency")) {
+         if  ((from_curr == "Choose Currency") || (to_curr == "Choose Currency")) {
            document.getElementById("result").innerHTML = `<span style="color:red"> Please choose a currency </span>`; 
            return;
         }
@@ -93,7 +93,7 @@
 
         document.getElementById("money").value=``;
         document.getElementById("currency_from").selectedIndex=0;
-        ocument.getElementById("currency_to").selectedIndex=0;
+        document.getElementById("currency_to").selectedIndex=0;
         document.getElementById("result").innerHTML =``;
 
     }
