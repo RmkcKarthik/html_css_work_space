@@ -60,13 +60,18 @@
         const to_curr = document.getElementById("currency_to").value;
 
         const rates = {
-            INR: { rate: 88.14, symbol:"₹"},
+            INR: { rate: 0.01135, symbol:"₹"},
             USD: { rate: 1, symbol:"$"},
-            KWD: { rate: 286.65, symbol:"KD"},
-            MYR: { rate: 20.88, symbol:"RM"},
+            KWD: { rate: 3.26, symbol:"KD"},
+            MYR: { rate: 0.21, symbol:"RM"},
         };
 
-         if  (!from_curr || !to_curr ) {
+        if (amount===null || amount==='') {
+            document.getElementById("result").innerHTML = `<span style="color:red"> Please enter a valid amount </span>`;
+            return;
+        }
+
+         if  ((from_curr == 'Choose Currency') || (to_curr == 'Choose Currency')) {
            document.getElementById("result").innerHTML = `<span style="color:red"> Please choose a currency </span>`; 
            return;
         }
@@ -76,14 +81,10 @@
            return;
         }
 
-        if (amount===null || amount==='') {
-            document.getElementById("result").innerHTML = `<span style="color:red"> Please enter a valid amount </span>`;
-            return;
-        }
 
-       const amountIn = amount / rates[from_curr].rate;
+       const amountIn = amount * rates[from_curr].rate;
 
-       const convertedAmount = amountIn * rates[to_curr].rate;
+       const convertedAmount = amountIn / rates[to_curr].rate;
 
        const fromSymbol = rates[from_curr].symbol;
        const toSymbol = rates[to_curr].symbol;
